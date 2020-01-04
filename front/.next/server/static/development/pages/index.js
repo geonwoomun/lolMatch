@@ -202,37 +202,51 @@ const RotationChamp = () => {
     },
     __self: undefined
   }, "\uB85C\uD14C\uC774\uC158 \uCC54\uD53C\uC5B8"), __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["List"], {
+    grid: {
+      gutter: 4,
+      column: 5,
+      padding: "0px",
+      margin: "0px"
+    },
     itemLayout: "horizontal",
     size: "small",
     dataSource: rotationChampion,
     renderItem: item => __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["List"].Item, {
       style: {
-        width: 100
+        width: 50,
+        padding: "0px",
+        margin: "0px"
       },
       key: item.id,
-      actions: [__jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: undefined
+    }, __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["Card"], {
+      style: {
+        padding: "0px",
+        margin: "0px"
+      },
+      hoverable: true,
+      style: {
+        width: 100
+      },
+      cover: __jsx("img", {
+        alt: "champ",
+        src: `http://localhost:3065/champ/champ_${item.id}.PNG`,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 26
         },
         __self: undefined
-      }, item.championName)],
-      extra: __jsx("img", {
-        width: 80,
-        alt: "champ",
-        src: `http://localhost:3065/champ/champ_${item.id}.PNG`,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 28
-        },
-        __self: undefined
       }),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 26
       },
       __self: undefined
-    }),
+    }, item.championName)),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
