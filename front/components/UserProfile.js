@@ -6,12 +6,14 @@ const UserProfile = () => {
   return (
     <>
       <h1>{userName}</h1>
+      <div style={{display: "flex", alignItems : "center", justifyContent: "center"}}>
       {userRanks.map(match => {
         return (
             <Card
+              style={{width: 300, display: "flex", alignItems : "center", justifyItems : "center", border : "1px solid #1890FF"}}
               key={match.leagueId}
               cover={
-                <img style = {{ width : 100, height: 100}}src={`http://localhost:3065/${match.tier}.jpg`} alt="" />
+                <img style = {{ width : 100, height: 100}}src={`http://localhost:3065/tier/${match.tier}.jpg`} alt="" />
               }
             >
               <Card.Meta title ={
@@ -27,6 +29,7 @@ const UserProfile = () => {
             </Card>
         );
       })}
+      </div>
     </>
   );
 };

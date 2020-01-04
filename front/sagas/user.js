@@ -1,4 +1,4 @@
-import { all, fork, delay, takeLatest,takeEvery, call, put, take } from 'redux-saga/effects';
+import { all, fork, takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
 import { SEARCH_USER_REQUEST, SEARCH_USER_FAILURE, SEARCH_USER_SUCCESS } from '../reducers/user';
 

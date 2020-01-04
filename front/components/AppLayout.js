@@ -22,7 +22,7 @@ const AppLayout = ({children}) => { // props
                     <LoginForm/>
                     }
                 </Col> */}
-                <Col xs={24} md={12}>
+                <Col xs={24} md={24}>
                     {children}
                 </Col>
                 {/* <Col xs={24} md={6}>
