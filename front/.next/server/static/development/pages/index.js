@@ -202,6 +202,9 @@ const RotationChamp = () => {
     },
     __self: undefined
   }, "\uB85C\uD14C\uC774\uC158 \uCC54\uD53C\uC5B8"), __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["List"], {
+    style: {
+      width: 600
+    },
     grid: {
       gutter: 4,
       column: 5,
@@ -220,7 +223,7 @@ const RotationChamp = () => {
       key: item.id,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 23
+        lineNumber: 24
       },
       __self: undefined
     }, __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["Card"], {
@@ -234,16 +237,16 @@ const RotationChamp = () => {
       },
       cover: __jsx("img", {
         alt: "champ",
-        src: `http://localhost:3065/champ/champ_${item.id}.PNG`,
+        src: `http://localhost:3065/champ/champ_${item.id}.png`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 26
+          lineNumber: 27
         },
         __self: undefined
       }),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 27
       },
       __self: undefined
     }, item.championName)),
@@ -458,7 +461,6 @@ const reducer = (state = initialState, action) => {
 
       case ROTATION_CHAMPION_SUCCESS:
         {
-          console.log(action.data);
           action.data.forEach(v => {
             draft.rotationChampion.push(v);
           });

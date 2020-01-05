@@ -17,7 +17,6 @@ const reducer = (state = initialState, action) => {
                 break;
             }
             case ROTATION_CHAMPION_SUCCESS : {
-                console.log(action.data);
                 action.data.forEach(v => {
                     draft.rotationChampion.push(v);
                 });

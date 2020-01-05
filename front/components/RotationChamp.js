@@ -15,6 +15,7 @@ const RotationChamp = () => {
     <>
     <h1>로테이션 챔피언</h1>
       <List
+      style={{width:600}}
         grid={{ gutter: 4, column: 5, padding: "0px", margin: "0px"}}
         itemLayout="horizontal"
         size="small"
@@ -25,7 +26,7 @@ const RotationChamp = () => {
             key={item.id}>
                  <Card style ={{padding : "0px", margin: "0px"}} hoverable style={{ width: 100 }} cover={<img
                 alt="champ"
-                src={`http://localhost:3065/champ/champ_${item.id}.PNG`}
+                src={`http://localhost:3065/champ/champ_${item.id}.png`}
             />}>{item.championName}</Card> 
             </List.Item>
         )}
