@@ -13,6 +13,7 @@ const reducer = (state = initialState, action) => {
     return produce(state, draft => {
         switch(action.type) {
             case ROTATION_CHAMPION_REQUEST : {
+                draft.rotationChampion = [];
                 draft.rotationError = '';
                 break;
             }

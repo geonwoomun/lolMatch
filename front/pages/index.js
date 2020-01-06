@@ -1,6 +1,7 @@
 import React from 'react';
 import InputForm from '../components/InputForm';
 import UserProfile from '../components/UserProfile';
+import UserMatches from '../components/UserMatches';
 import { useSelector } from 'react-redux';
 import RotationChamp from '../components/RotationChamp';
 
@@ -10,7 +11,7 @@ const Home = () => {
         <>
             <InputForm/>
             <RotationChamp/>
-            {isLoadedUser && <UserProfile/>}
+            {isLoadedUser && <><UserProfile/><UserMatches/></>}
         </>
     );
 };

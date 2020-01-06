@@ -2371,6 +2371,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
       case ROTATION_CHAMPION_REQUEST:
         {
+          draft.rotationChampion = [];
           draft.rotationError = '';
           break;
         }
@@ -2442,6 +2443,8 @@ __webpack_require__.r(__webpack_exports__);
 const initialState = {
   userName: '',
   userRanks: [],
+  userMatches: [],
+  detailInfos: [],
   isLoadedUser: false
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
@@ -2453,27 +2456,19 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
       case SEARCH_USER_REQUEST:
         {
+          draft.userRanks = [];
+          draft.userMatches = [];
+          draft.detailsInfos = [];
           draft.isLoadedUser = false;
           break;
         }
 
       case SEARCH_USER_SUCCESS:
         {
-          draft.userName = action.data[0];
-          draft.userRanks = action.data.filter((v, i) => i !== 0).sort((a, b) => {
-            let queA = a.queueType.toUpperCase();
-            let queB = b.queueType.toUpperCase();
-
-            if (queA > queB) {
-              return -1;
-            }
-
-            if (queA < queB) {
-              return 1;
-            }
-
-            return 0;
-          });
+          draft.userName = action.data.name;
+          draft.userRanks = [action.data["RANKED_SOLO_5x5"], action.data["RANKED_FLEX_SR"]];
+          draft.userMatches = action.data.matches;
+          draft.detailInfos = action.data.detailInfos;
           draft.isLoadedUser = true;
           break;
         }

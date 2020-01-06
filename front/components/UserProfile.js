@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Card } from "antd";
 const UserProfile = () => {
   const { userName, userRanks } = useSelector(state => state.user);
+  console.log(userRanks);
   return (
     <>
       <h1>{userName}</h1>
@@ -22,8 +23,9 @@ const UserProfile = () => {
               {match.tier + " "+ match.rank} 등급<br/>
               {match.leaguePoints} points
               </div>} description={<div>
-                  승 : {match.wins}
-                  패 : {match.losses}
+                  {match.wins + match.losses}전 {" "}
+                  {match.wins}승{" "}
+                  {match.losses}패{" "}
                   ({ ((match.wins / (match.wins+match.losses)) * 100).toFixed(2)}%)
               </div>}/>
             </Card>
