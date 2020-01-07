@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import { Card } from "antd";
 const UserProfile = () => {
   const { userName, userRanks } = useSelector(state => state.user);
-  console.log(userRanks);
   return (
     <>
       <h1>{userName}</h1>
       <div style={{display: "flex", alignItems : "center", justifyContent: "center"}}>
       {userRanks.map(match => {
         return (
+            match &&
             <Card
               style={{width: 300, display: "flex", alignItems : "center", justifyItems : "center", border : "1px solid #1890FF"}}
               key={match.leagueId}

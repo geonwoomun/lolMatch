@@ -2428,7 +2428,7 @@ const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 /*!**************************!*\
   !*** ./reducers/user.js ***!
   \**************************/
-/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, default */
+/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2437,6 +2437,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_USER_REQUEST", function() { return SEARCH_USER_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_USER_SUCCESS", function() { return SEARCH_USER_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEARCH_USER_FAILURE", function() { return SEARCH_USER_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_REQUEST", function() { return CHECK_GAMING_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_SUCCESS", function() { return CHECK_GAMING_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_FAILURE", function() { return CHECK_GAMING_FAILURE; });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "immer");
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -2445,11 +2448,15 @@ const initialState = {
   userRanks: [],
   userMatches: [],
   detailInfos: [],
-  isLoadedUser: false
+  isLoadedUser: false,
+  gamingCheck: false
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
 const SEARCH_USER_FAILURE = "SEARCH_USER_FAILURE";
+const CHECK_GAMING_REQUEST = "CHECK_GAMING_REQUEST";
+const CHECK_GAMING_SUCCESS = "CHECK_GAMING_SUCCESS";
+const CHECK_GAMING_FAILURE = "CHECK_GAMING_FAILURE";
 
 const reducer = (state = initialState, action) => {
   return immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
@@ -2476,6 +2483,24 @@ const reducer = (state = initialState, action) => {
       case SEARCH_USER_FAILURE:
         {
           draft.isLoadedUser = false;
+          break;
+        }
+
+      case CHECK_GAMING_REQUEST:
+        {
+          draft.gamingCheck = false;
+          break;
+        }
+
+      case CHECK_GAMING_SUCCESS:
+        {
+          draft.gamingCheck = true;
+          break;
+        }
+
+      case CHECK_GAMING_FAILURE:
+        {
+          draft.gamingCheck = false;
           break;
         }
 
@@ -2609,10 +2634,34 @@ function* watchSearch() {
   yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["takeLatest"])(_reducers_user__WEBPACK_IMPORTED_MODULE_2__["SEARCH_USER_REQUEST"], searchUser);
 }
 
+function checkGamingAPI(userName) {
+  return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(`/user/checkGaming/${userName}`);
+}
+
+function* checkGaming(action) {
+  try {
+    const result = yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["call"])(checkGamingAPI, action.data);
+    yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["put"])({
+      type: _reducers_user__WEBPACK_IMPORTED_MODULE_2__["CHECK_GAMING_SUCCESS"],
+      data: result.data
+    });
+  } catch (e) {
+    console.error(e);
+    yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["put"])({
+      type: _reducers_user__WEBPACK_IMPORTED_MODULE_2__["CHECK_GAMING_FAILURE"],
+      error: e
+    });
+  }
+}
+
+function* watchCheckGaming() {
+  yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["takeLatest"])(_reducers_user__WEBPACK_IMPORTED_MODULE_2__["CHECK_GAMING_REQUEST"], checkGaming);
+}
+
 function* userSaga() {
   yield Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["all"])([//call fork는 둘다 함수를 실행해줌. call 동기호출 fork 비동기 호출출
-  Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["fork"])(watchSearch) // 많은 액션들 사이에 순서가 없다. 사용자의 이벤트 클릭에 따라 작동.
-  // 순서가 의미가 없으니깐 fork
+  Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["fork"])(watchSearch), // 많은 액션들 사이에 순서가 없다. 사용자의 이벤트 클릭에 따라 작동.
+  Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_0__["fork"])(watchCheckGaming) // 순서가 의미가 없으니깐 fork
   ]); // 사용자에 관한 리덕스 액션이 여러개면 all로 묶어서 다 넣어줘야함.
 }
 

@@ -5,12 +5,17 @@ export const initialState = {
     userRanks : [],
     userMatches : [],
     detailInfos : [],
-    isLoadedUser : false
+    isLoadedUser : false,
+    gamingCheck : false,
 };
 
 export const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 export const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
 export const SEARCH_USER_FAILURE = "SEARCH_USER_FAILURE";
+
+export const CHECK_GAMING_REQUEST = "CHECK_GAMING_REQUEST";
+export const CHECK_GAMING_SUCCESS = "CHECK_GAMING_SUCCESS";
+export const CHECK_GAMING_FAILURE = "CHECK_GAMING_FAILURE";
 
 
 const reducer = (state = initialState, action) => {
@@ -33,6 +38,18 @@ const reducer = (state = initialState, action) => {
             }
             case SEARCH_USER_FAILURE : {
                 draft.isLoadedUser = false;
+                break;
+            }
+            case CHECK_GAMING_REQUEST : {
+                draft.gamingCheck = false;
+                break;
+            }
+            case CHECK_GAMING_SUCCESS : {
+                draft.gamingCheck = true;
+                break;
+            }
+            case CHECK_GAMING_FAILURE : {
+                draft.gamingCheck = false;
                 break;
             }
             default : break;

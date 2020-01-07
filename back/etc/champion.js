@@ -260,6 +260,15 @@ module.exports = {
       case 245:
         championName = "에코";
         break;
+      case 2 : 
+        championName = "올라프";
+        break;
+      case 32:
+        championName = "아무무";
+        break;
+      case 60:
+        championName = "엘리스";
+        break;
       case 61:
         championName = "오리아나";
         break;

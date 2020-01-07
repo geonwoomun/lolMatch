@@ -22,9 +22,10 @@ const RotationChamp = () => {
         dataSource={rotationChampion}
         renderItem={item => (
           <List.Item
-            style={{ width: 50, padding : "0px", margin: "0px"}}
+            style={{ width: 100, padding : "0px", margin: "0px"}}
             key={item.id}>
-                 <Card style ={{padding : "0px", margin: "0px"}} hoverable style={{ width: 100 }} cover={<img
+                 <Card style ={{width :90,padding : "0px", margin: "0px", fontSize: "10px"}} hoverable cover={<img
+                style={{width: 90}}
                 alt="champ"
                 src={`http://localhost:3065/champ/champ_${item.id}.png`}
             />}>{item.championName}</Card> 
