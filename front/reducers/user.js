@@ -7,6 +7,7 @@ export const initialState = {
     detailInfos : [],
     isLoadedUser : false,
     gamingCheck : false,
+    gameInfo : {},
 };
 
 export const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
@@ -17,6 +18,7 @@ export const CHECK_GAMING_REQUEST = "CHECK_GAMING_REQUEST";
 export const CHECK_GAMING_SUCCESS = "CHECK_GAMING_SUCCESS";
 export const CHECK_GAMING_FAILURE = "CHECK_GAMING_FAILURE";
 
+export const GAMING_FALSE = "GAMING_FALSE";
 
 const reducer = (state = initialState, action) => {
     return produce(state, draft => {
@@ -46,9 +48,14 @@ const reducer = (state = initialState, action) => {
             }
             case CHECK_GAMING_SUCCESS : {
                 draft.gamingCheck = true;
+                draft.gameInfo = action.data;
                 break;
             }
             case CHECK_GAMING_FAILURE : {
+                draft.gamingCheck = false;
+                break;
+            }
+            case GAMING_FALSE :{
                 draft.gamingCheck = false;
                 break;
             }

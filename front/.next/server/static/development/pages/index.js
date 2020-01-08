@@ -93,6 +93,288 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/GameInfo.js":
+/*!********************************!*\
+  !*** ./components/GameInfo.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\ansej\\\uACF5\uBD80\uD55C\uAC83\uB4E4\\lolMatch\\front\\components\\GameInfo.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const GameInfoWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  & > div {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+  }
+  & > div > img {
+    width : 20px;
+    height: 20px;
+  }
+`;
+const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+  & .oneBox {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  & .runeBox {
+    display: flex;
+    flex-direction: column;
+  }
+  & .runeBox > img {
+    width: 25px;
+    height: 25px;
+  }
+  & .summonerBox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  & .summonerBox > span {
+    line-height: 45px;
+  }
+  & .summonerBox > .spellBox {
+    display: flex;
+    flex-direction: column;
+  }
+  & .summonerBox > .spellBox > img {
+    width: 20px;
+    height: 20px;
+  }
+  & .summonerBox > img {
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+const GameInfo = () => {
+  const {
+    gameInfo
+  } = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(state => state.user);
+  const nowTime = new Date();
+  const gameTime = (nowTime.getTime() - gameInfo.gameStartTime) / 1000 / 60 - 3;
+  return __jsx(GameInfoWrapper, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: undefined
+  }, __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: undefined
+  }, gameInfo.gameType, " ", Math.floor(gameTime) + "분 " + (gameTime % 1 * 60).toFixed() + "초"), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  }, __jsx(GameInfoBox, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: undefined
+  }, [...gameInfo.participants].slice(0, 5).map(v => {
+    return __jsx("div", {
+      className: "oneBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 72
+      },
+      __self: undefined
+    }, __jsx("div", {
+      className: "runeBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 73
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: `http://localhost:3065/rune/${v.perks.perkIds[0]}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 74
+      },
+      __self: undefined
+    }), __jsx("img", {
+      src: `http://localhost:3065/rune/${v.perks.perkSubStyle}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 77
+      },
+      __self: undefined
+    })), __jsx("div", {
+      className: "summonerBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 81
+      },
+      __self: undefined
+    }, __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 82
+      },
+      __self: undefined
+    }, v.summonerName), __jsx("div", {
+      className: "spellBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 83
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: `http://localhost:3065/spell/${v.spell1Id}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 84
+      },
+      __self: undefined
+    }), __jsx("img", {
+      src: `http://localhost:3065/spell/${v.spell2Id}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 87
+      },
+      __self: undefined
+    })), __jsx("img", {
+      src: `http://localhost:3065/champ/champ_${v.championId}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 91
+      },
+      __self: undefined
+    })));
+  })), __jsx(GameInfoBox, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 99
+    },
+    __self: undefined
+  }, [...gameInfo.participants].slice(5).map(v => {
+    return __jsx("div", {
+      className: "oneBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 102
+      },
+      __self: undefined
+    }, __jsx("div", {
+      className: "summonerBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 103
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: `http://localhost:3065/champ/champ_${v.championId}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 104
+      },
+      __self: undefined
+    }), __jsx("div", {
+      className: "spellBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 107
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: `http://localhost:3065/spell/${v.spell1Id}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 108
+      },
+      __self: undefined
+    }), __jsx("img", {
+      src: `http://localhost:3065/spell/${v.spell2Id}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111
+      },
+      __self: undefined
+    })), __jsx("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 115
+      },
+      __self: undefined
+    }, v.summonerName)), __jsx("div", {
+      className: "runeBox",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 117
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: `http://localhost:3065/rune/${v.perks.perkIds[0]}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 118
+      },
+      __self: undefined
+    }), __jsx("img", {
+      src: `http://localhost:3065/rune/${v.perks.perkSubStyle}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 121
+      },
+      __self: undefined
+    })));
+  }))), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 130
+    },
+    __self: undefined
+  }, [...gameInfo.bannedChampions].slice(0, 5).map(v => __jsx("img", {
+    src: `http://localhost:3065/champ/champ_${v.championId}.png`,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 131
+    },
+    __self: undefined
+  })), __jsx("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 132
+    },
+    __self: undefined
+  }, "\uAE08\uC9C0"), [...gameInfo.bannedChampions].slice(5).map(v => __jsx("img", {
+    src: `http://localhost:3065/champ/champ_${v.championId}.png`,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133
+    },
+    __self: undefined
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (GameInfo);
+
+/***/ }),
+
 /***/ "./components/InputForm.js":
 /*!*********************************!*\
   !*** ./components/InputForm.js ***!
@@ -333,7 +615,7 @@ const UserMatches = () => {
         lineNumber: 40
       },
       __self: undefined
-    }, type === 420 ? "솔로랭크" : type === 430 ? "일반" : type === 440 ? "자유랭" : type === 450 ? "칼바람" : " 포로왕")
+    }, type)
   }, {
     title: "KDA",
     dataIndex: "KDA",
@@ -341,13 +623,13 @@ const UserMatches = () => {
     render: kda => __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 50
       },
       __self: undefined
     }, "평점:" + ((kda[0] + kda[2]) / kda[1]).toFixed(2), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 60
+        lineNumber: 52
       },
       __self: undefined
     }), `${kda[0]}/${kda[1]}/${kda[2]}`)
@@ -361,7 +643,7 @@ const UserMatches = () => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 70
+        lineNumber: 62
       },
       __self: undefined
     }, __jsx("div", {
@@ -371,7 +653,7 @@ const UserMatches = () => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 71
+        lineNumber: 63
       },
       __self: undefined
     }, __jsx("img", {
@@ -381,7 +663,7 @@ const UserMatches = () => {
       src: `http://localhost:3065/spell/${sr[0]}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 64
       },
       __self: undefined
     }), __jsx("img", {
@@ -391,7 +673,7 @@ const UserMatches = () => {
       src: `http://localhost:3065/spell/${sr[1]}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 76
+        lineNumber: 68
       },
       __self: undefined
     })), __jsx("div", {
@@ -401,7 +683,7 @@ const UserMatches = () => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 73
       },
       __self: undefined
     }, __jsx("img", {
@@ -411,7 +693,7 @@ const UserMatches = () => {
       src: `http://localhost:3065/rune/${sr[2]}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82
+        lineNumber: 74
       },
       __self: undefined
     }), __jsx("img", {
@@ -421,7 +703,7 @@ const UserMatches = () => {
       src: `http://localhost:3065/rune/${sr[3]}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 86
+        lineNumber: 78
       },
       __self: undefined
     })))
@@ -435,7 +717,7 @@ const UserMatches = () => {
       return __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 94
         },
         __self: undefined
       }, __jsx("div", {
@@ -444,7 +726,7 @@ const UserMatches = () => {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 95
         },
         __self: undefined
       }, team1.map(t => __jsx("img", {
@@ -455,7 +737,7 @@ const UserMatches = () => {
         src: `http://localhost:3065/champ/champ_${t}.png`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
+          lineNumber: 97
         },
         __self: undefined
       }))), __jsx("div", {
@@ -464,7 +746,7 @@ const UserMatches = () => {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111
+          lineNumber: 103
         },
         __self: undefined
       }, team2.map(t => __jsx("img", {
@@ -475,7 +757,7 @@ const UserMatches = () => {
         src: `http://localhost:3065/champ/champ_${t}.png`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 113
+          lineNumber: 105
         },
         __self: undefined
       }))));
@@ -493,7 +775,7 @@ const UserMatches = () => {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 128
+        lineNumber: 120
       },
       __self: undefined
     }, item.map(t => {
@@ -505,7 +787,7 @@ const UserMatches = () => {
         src: `http://localhost:3065/item/${t}.png`,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 131
+          lineNumber: 123
         },
         __self: undefined
       });
@@ -517,19 +799,19 @@ const UserMatches = () => {
     render: lvgcs => __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 145
+        lineNumber: 137
       },
       __self: undefined
     }, "\uB808\uBCA8 : ", lvgcs[0], __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 147
+        lineNumber: 139
       },
       __self: undefined
     }), "\uACE8\uB4DC : ", lvgcs[1], __jsx("br", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 149
+        lineNumber: 141
       },
       __self: undefined
     }), "cs : ", lvgcs[2])
@@ -544,22 +826,22 @@ const UserMatches = () => {
       return __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 162
+          lineNumber: 154
         },
         __self: undefined
       }, _babel_runtime_corejs2_core_js_parse_int__WEBPACK_IMPORTED_MODULE_0___default()(play[0] / 60) + "분 " + play[0] % 60 + "초"), __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 163
+          lineNumber: 155
         },
         __self: undefined
-      }, timeBetween >= 1 ? Math.floor(timeBetween) + "일 전" : timeBetween * 10 >= 0.7 ? Math.ceil(timeBetween * 10) + "시간 전" : Math.ceil(timeBetween * 600) + "분 전")); // 일전 0.7 보다 높으면 시간전  아니면 분전.  분전 오차가 좀 있음..
+      }, timeBetween >= 1 ? Math.floor(timeBetween) + "일 전" : timeBetween * 24 >= 1 ? Math.floor(timeBetween * 24) + "시간 전" : Math.floor(timeBetween * 24 * 60) + "분 전")); // 일전 0.7 보다 높으면 시간전  아니면 분전.  분전 오차가 좀 있음..
     }
   }];
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 171
+      lineNumber: 163
     },
     __self: undefined
   }, __jsx(TableWrapper, {
@@ -571,7 +853,7 @@ const UserMatches = () => {
     dataSource: detailInfos,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 172
+      lineNumber: 164
     },
     __self: undefined
   }));
@@ -717,11 +999,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_InputForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/InputForm */ "./components/InputForm.js");
 /* harmony import */ var _components_UserProfile__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/UserProfile */ "./components/UserProfile.js");
 /* harmony import */ var _components_UserMatches__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/UserMatches */ "./components/UserMatches.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_RotationChamp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/RotationChamp */ "./components/RotationChamp.js");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! antd */ "antd");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_GameInfo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/GameInfo */ "./components/GameInfo.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_RotationChamp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/RotationChamp */ "./components/RotationChamp.js");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! antd */ "antd");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _reducers_user__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../reducers/user */ "./reducers/user.js");
 var _jsxFileName = "C:\\Users\\ansej\\\uACF5\uBD80\uD55C\uAC83\uB4E4\\lolMatch\\front\\pages\\index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -732,54 +1016,63 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
 const Home = () => {
-  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["useDispatch"])();
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["useDispatch"])();
   const {
     userName,
     isLoadedUser,
     gamingCheck
-  } = Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["useSelector"])(state => state.user);
+  } = Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["useSelector"])(state => state.user);
   const onGamingCheck = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
-    dispatch({
-      type: CHECK_GAMING_REQUEST,
-      data: userName
-    });
-  }, []);
+    if (!gamingCheck) {
+      dispatch({
+        type: _reducers_user__WEBPACK_IMPORTED_MODULE_8__["CHECK_GAMING_REQUEST"],
+        data: userName
+      });
+    } else {
+      dispatch({
+        // 게이밍체크를 false로 만들자.
+        type: _reducers_user__WEBPACK_IMPORTED_MODULE_8__["GAMING_FALSE"]
+      });
+    }
+  }, [userName, gamingCheck]);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_InputForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 31
     },
     __self: undefined
-  }), __jsx(_components_RotationChamp__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }), __jsx(_components_RotationChamp__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 32
     },
     __self: undefined
   }), isLoadedUser && __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_UserProfile__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 33
     },
     __self: undefined
-  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_6__["Button"], {
+  }), __jsx(antd__WEBPACK_IMPORTED_MODULE_7__["Button"], {
     onClick: onGamingCheck,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 34
     },
     __self: undefined
-  }, "\uC778\uAC8C\uC784 \uC815\uBCF4"), gamingCheck ? __jsx(GameInfo, {
+  }, "\uC778\uAC8C\uC784 \uC815\uBCF4"), gamingCheck && __jsx(_components_GameInfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 35
     },
     __self: undefined
-  }) : null, __jsx(_components_UserMatches__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx(_components_UserMatches__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 36
     },
     __self: undefined
   })));
@@ -851,7 +1144,7 @@ const reducer = (state = initialState, action) => {
 /*!**************************!*\
   !*** ./reducers/user.js ***!
   \**************************/
-/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, default */
+/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, GAMING_FALSE, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -863,6 +1156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_REQUEST", function() { return CHECK_GAMING_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_SUCCESS", function() { return CHECK_GAMING_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_FAILURE", function() { return CHECK_GAMING_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GAMING_FALSE", function() { return GAMING_FALSE; });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "immer");
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -872,7 +1166,8 @@ const initialState = {
   userMatches: [],
   detailInfos: [],
   isLoadedUser: false,
-  gamingCheck: false
+  gamingCheck: false,
+  gameInfo: {}
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
@@ -880,6 +1175,7 @@ const SEARCH_USER_FAILURE = "SEARCH_USER_FAILURE";
 const CHECK_GAMING_REQUEST = "CHECK_GAMING_REQUEST";
 const CHECK_GAMING_SUCCESS = "CHECK_GAMING_SUCCESS";
 const CHECK_GAMING_FAILURE = "CHECK_GAMING_FAILURE";
+const GAMING_FALSE = "GAMING_FALSE";
 
 const reducer = (state = initialState, action) => {
   return immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
@@ -918,10 +1214,17 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_SUCCESS:
         {
           draft.gamingCheck = true;
+          draft.gameInfo = action.data;
           break;
         }
 
       case CHECK_GAMING_FAILURE:
+        {
+          draft.gamingCheck = false;
+          break;
+        }
+
+      case GAMING_FALSE:
         {
           draft.gamingCheck = false;
           break;

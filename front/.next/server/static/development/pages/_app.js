@@ -2428,7 +2428,7 @@ const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 /*!**************************!*\
   !*** ./reducers/user.js ***!
   \**************************/
-/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, default */
+/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, GAMING_FALSE, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2440,6 +2440,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_REQUEST", function() { return CHECK_GAMING_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_SUCCESS", function() { return CHECK_GAMING_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_FAILURE", function() { return CHECK_GAMING_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GAMING_FALSE", function() { return GAMING_FALSE; });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "immer");
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -2449,7 +2450,8 @@ const initialState = {
   userMatches: [],
   detailInfos: [],
   isLoadedUser: false,
-  gamingCheck: false
+  gamingCheck: false,
+  gameInfo: {}
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
@@ -2457,6 +2459,7 @@ const SEARCH_USER_FAILURE = "SEARCH_USER_FAILURE";
 const CHECK_GAMING_REQUEST = "CHECK_GAMING_REQUEST";
 const CHECK_GAMING_SUCCESS = "CHECK_GAMING_SUCCESS";
 const CHECK_GAMING_FAILURE = "CHECK_GAMING_FAILURE";
+const GAMING_FALSE = "GAMING_FALSE";
 
 const reducer = (state = initialState, action) => {
   return immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
@@ -2495,10 +2498,17 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_SUCCESS:
         {
           draft.gamingCheck = true;
+          draft.gameInfo = action.data;
           break;
         }
 
       case CHECK_GAMING_FAILURE:
+        {
+          draft.gamingCheck = false;
+          break;
+        }
+
+      case GAMING_FALSE:
         {
           draft.gamingCheck = false;
           break;

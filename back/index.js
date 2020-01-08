@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const app = express();
 const axios = require('axios');
 const { getChampion } = require('./etc/champion');
+const { getQueue } = require('./etc/queueType');
 // API는 다른 서비스가 내 서비스의 기능을 실행할 수 있게 열어둔 창구.
 
 dotenv.config();
@@ -45,7 +46,7 @@ app.get('/api/user/:name', async (req, res, next) =>{
             const participantId = details.data.participantIdentities.filter(v => v.player.summonerName === req.params.name)[0].participantId;
             const detailInfo = details.data.participants[participantId-1];
             const matchInfo = {}
-            matchInfo.type = details.data.queueId
+            matchInfo.type = getQueue(details.data.queueId);
             matchInfo.team = details.data.participants.map((v, i) =>{
                 if(participantId === i + 1){
                     matchInfo.champion = v.championId;
@@ -69,7 +70,7 @@ app.get('/api/user/:name', async (req, res, next) =>{
     }
 });
 
-app.get('/api/checkGaming/:name', async (req, res, next) => { // 현재 게임 진행 중인거 보려고
+app.get('/api/user/checkGaming/:name', async (req, res, next) => { // 현재 게임 진행 중인거 보려고
     // gameStartTime,
     // gameQueueConfigId 랭크인지 자유랭인지 이러거
     // participants : [
@@ -93,8 +94,14 @@ app.get('/api/checkGaming/:name', async (req, res, next) => { // 현재 게임 �
     // ]
     try {
         const data = await axios.get(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/${encodeURIComponent(req.params.name)}?api_key=${process.env.RIOT_API_KEY}`);
-        const gameInfo = await axios.get(`https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${data.data.id}?api_key=${process.env.RIOT_API_KEY}`);
-
+        const gameInfoData = await axios.get(`https://kr.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${data.data.id}?api_key=${process.env.RIOT_API_KEY}`);
+        const gameInfo = {
+            gameStartTime : gameInfoData.data.gameStartTime,
+            gameType : getQueue(gameInfoData.data.gameQueueConfigId),
+            bannedChampions : gameInfoData.data.bannedChampions, // championId 중요
+            participants : gameInfoData.data.participants, // championId, summonerName, perks(룬), spell1Id, spell2Id 중요. 
+        };
+        res.send(gameInfo);
     } catch(e){
         console.error(e);
         next(e);

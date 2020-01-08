@@ -38,15 +38,7 @@ const UserMatches = () => {
       key: "type",
       render: type => (
         <div>
-          {type === 420
-            ? "솔로랭크"
-            : type === 430
-            ? "일반"
-            : type === 440
-            ? "자유랭"
-            : type === 450
-            ? "칼바람"
-            : " 포로왕"}
+          {type}
         </div>
       )
     },
@@ -161,7 +153,7 @@ const UserMatches = () => {
         const timeBetween = (nowTime- play[1])/1000/60/60/24;
        return  <><div>{parseInt(play[0]/60)+"분 "+play[0]%60+"초"}</div>
         <div>
-            {timeBetween >= 1 ? Math.floor(timeBetween)+"일 전" :  timeBetween * 10 >= 0.7 ? Math.ceil(timeBetween* 10) + "시간 전" : Math.ceil(timeBetween * 600) + "분 전"}
+            {timeBetween >= 1 ? Math.floor(timeBetween)+"일 전" :  timeBetween * 24 >= 1 ? Math.floor(timeBetween * 24) + "시간 전" : Math.floor(timeBetween * 24 * 60) + "분 전"}
         </div></> // 일전 0.7 보다 높으면 시간전  아니면 분전.  분전 오차가 좀 있음..
       }
     
