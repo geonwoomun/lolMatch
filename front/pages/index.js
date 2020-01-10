@@ -10,7 +10,7 @@ import { CHECK_GAMING_REQUEST, GAMING_FALSE } from '../reducers/user';
 
 const Home = () => {
     const dispatch = useDispatch();
-    const { userName, isLoadedUser, gamingCheck } = useSelector(state => state.user);
+    const { userName, isLoadedUser, gamingCheck, gamingCheckMessage} = useSelector(state => state.user);
     const onGamingCheck = useCallback(() => {
         if(!gamingCheck){
             dispatch({
@@ -33,6 +33,7 @@ const Home = () => {
             {isLoadedUser && <><UserProfile/>
             <Button onClick ={onGamingCheck}>인게임 정보</Button>
             {gamingCheck && <GameInfo/>}
+            {gamingCheckMessage}
             <UserMatches/></>}
         </>
     );

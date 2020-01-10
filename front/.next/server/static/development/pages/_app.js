@@ -2451,7 +2451,8 @@ const initialState = {
   detailInfos: [],
   isLoadedUser: false,
   gamingCheck: false,
-  gameInfo: {}
+  gameInfo: {},
+  gamingCheckMessage: ''
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
@@ -2470,6 +2471,7 @@ const reducer = (state = initialState, action) => {
           draft.userMatches = [];
           draft.detailsInfos = [];
           draft.isLoadedUser = false;
+          draft.gamingCheckMessage = '';
           break;
         }
 
@@ -2492,6 +2494,7 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_REQUEST:
         {
           draft.gamingCheck = false;
+          draft.gamingCheckMessage = '';
           break;
         }
 
@@ -2505,6 +2508,7 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_FAILURE:
         {
           draft.gamingCheck = false;
+          draft.gamingCheckMessage = "게임을 진행중이지 않습니다.";
           break;
         }
 

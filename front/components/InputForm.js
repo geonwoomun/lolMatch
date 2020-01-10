@@ -19,7 +19,7 @@ const InputForm = () => {
     }, [])
     return (
         <Form onSubmit={onSubmit}>
-            <Input value = {userName} onChange={onChangeName}></Input>
+            <Input style={{width : 400}} placeholder="소환사명 검색" value = {userName} onChange={onChangeName}></Input>
             <Button type = 'primary' htmlType ="submit">검색</Button>
         </Form>
     );

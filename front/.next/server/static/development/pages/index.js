@@ -114,6 +114,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const GameInfoWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  display : flex;
+  align-items : center;
+  flex-direction : column;
+  margin : 10px 10px;
+  padding : 10px 10px;
+  border : 1px solid #b2bec3;
+  border-radius : 5px;
+  background : #b2bec3;
   & > div {
     display: flex;
     width: 500px;
@@ -122,6 +130,9 @@ const GameInfoWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a
   & > div > img {
     width : 20px;
     height: 20px;
+  }
+  & > .banBox {
+    border : 1px solid grey;
   }
 `;
 const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
@@ -133,6 +144,14 @@ const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    border : 1px solid grey;
+    border-radius : 5px;
+  }
+  & .blueTeam {
+    background : #D4E4FE;
+  }
+  & .redTeam {
+    background : #FFEEEE;
   }
   & .runeBox {
     display: flex;
@@ -146,6 +165,7 @@ const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div
     display: flex;
     justify-content: center;
     align-content: center;
+    font-weight : bold;
   }
   & .summonerBox > span {
     line-height: 45px;
@@ -155,12 +175,12 @@ const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div
     flex-direction: column;
   }
   & .summonerBox > .spellBox > img {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
   & .summonerBox > img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
   }
 `;
 
@@ -173,199 +193,200 @@ const GameInfo = () => {
   return __jsx(GameInfoWrapper, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 83
     },
     __self: undefined
   }, __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 84
     },
     __self: undefined
   }, gameInfo.gameType, " ", Math.floor(gameTime) + "분 " + (gameTime % 1 * 60).toFixed() + "초"), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 88
     },
     __self: undefined
   }, __jsx(GameInfoBox, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 89
     },
     __self: undefined
   }, [...gameInfo.participants].slice(0, 5).map(v => {
     return __jsx("div", {
-      className: "oneBox",
+      className: "oneBox blueTeam",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 72
+        lineNumber: 92
       },
       __self: undefined
     }, __jsx("div", {
       className: "runeBox",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 73
+        lineNumber: 93
       },
       __self: undefined
     }, __jsx("img", {
       src: `http://localhost:3065/rune/${v.perks.perkIds[0]}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 74
+        lineNumber: 94
       },
       __self: undefined
     }), __jsx("img", {
       src: `http://localhost:3065/rune/${v.perks.perkSubStyle}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 77
+        lineNumber: 97
       },
       __self: undefined
     })), __jsx("div", {
       className: "summonerBox",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 81
+        lineNumber: 101
       },
       __self: undefined
     }, __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 82
+        lineNumber: 102
       },
       __self: undefined
     }, v.summonerName), __jsx("div", {
       className: "spellBox",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 83
+        lineNumber: 103
       },
       __self: undefined
     }, __jsx("img", {
       src: `http://localhost:3065/spell/${v.spell1Id}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 84
+        lineNumber: 104
       },
       __self: undefined
     }), __jsx("img", {
       src: `http://localhost:3065/spell/${v.spell2Id}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 87
+        lineNumber: 107
       },
       __self: undefined
     })), __jsx("img", {
       src: `http://localhost:3065/champ/champ_${v.championId}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 91
+        lineNumber: 111
       },
       __self: undefined
     })));
   })), __jsx(GameInfoBox, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 99
+      lineNumber: 119
     },
     __self: undefined
   }, [...gameInfo.participants].slice(5).map(v => {
     return __jsx("div", {
-      className: "oneBox",
+      className: "oneBox redTeam",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 102
+        lineNumber: 122
       },
       __self: undefined
     }, __jsx("div", {
       className: "summonerBox",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 103
+        lineNumber: 123
       },
       __self: undefined
     }, __jsx("img", {
       src: `http://localhost:3065/champ/champ_${v.championId}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 124
       },
       __self: undefined
     }), __jsx("div", {
       className: "spellBox",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 107
+        lineNumber: 127
       },
       __self: undefined
     }, __jsx("img", {
       src: `http://localhost:3065/spell/${v.spell1Id}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 108
+        lineNumber: 128
       },
       __self: undefined
     }), __jsx("img", {
       src: `http://localhost:3065/spell/${v.spell2Id}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 111
+        lineNumber: 131
       },
       __self: undefined
     })), __jsx("span", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 115
+        lineNumber: 135
       },
       __self: undefined
     }, v.summonerName)), __jsx("div", {
       className: "runeBox",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 117
+        lineNumber: 137
       },
       __self: undefined
     }, __jsx("img", {
       src: `http://localhost:3065/rune/${v.perks.perkIds[0]}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 118
+        lineNumber: 138
       },
       __self: undefined
     }), __jsx("img", {
       src: `http://localhost:3065/rune/${v.perks.perkSubStyle}.png`,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 121
+        lineNumber: 141
       },
       __self: undefined
     })));
   }))), __jsx("div", {
+    className: "banBox",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 130
+      lineNumber: 150
     },
     __self: undefined
   }, [...gameInfo.bannedChampions].slice(0, 5).map(v => __jsx("img", {
     src: `http://localhost:3065/champ/champ_${v.championId}.png`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 131
+      lineNumber: 151
     },
     __self: undefined
   })), __jsx("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 132
+      lineNumber: 152
     },
     __self: undefined
   }, "\uAE08\uC9C0"), [...gameInfo.bannedChampions].slice(5).map(v => __jsx("img", {
     src: `http://localhost:3065/champ/champ_${v.championId}.png`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 133
+      lineNumber: 153
     },
     __self: undefined
   }))));
@@ -422,6 +443,10 @@ const InputForm = () => {
     },
     __self: undefined
   }, __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["Input"], {
+    style: {
+      width: 400
+    },
+    placeholder: "\uC18C\uD658\uC0AC\uBA85 \uAC80\uC0C9",
     value: userName,
     onChange: onChangeName,
     __source: {
@@ -1023,7 +1048,8 @@ const Home = () => {
   const {
     userName,
     isLoadedUser,
-    gamingCheck
+    gamingCheck,
+    gamingCheckMessage
   } = Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["useSelector"])(state => state.user);
   const onGamingCheck = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
     if (!gamingCheck) {
@@ -1069,10 +1095,10 @@ const Home = () => {
       lineNumber: 35
     },
     __self: undefined
-  }), __jsx(_components_UserMatches__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), gamingCheckMessage, __jsx(_components_UserMatches__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 37
     },
     __self: undefined
   })));
@@ -1167,7 +1193,8 @@ const initialState = {
   detailInfos: [],
   isLoadedUser: false,
   gamingCheck: false,
-  gameInfo: {}
+  gameInfo: {},
+  gamingCheckMessage: ''
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
@@ -1186,6 +1213,7 @@ const reducer = (state = initialState, action) => {
           draft.userMatches = [];
           draft.detailsInfos = [];
           draft.isLoadedUser = false;
+          draft.gamingCheckMessage = '';
           break;
         }
 
@@ -1208,6 +1236,7 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_REQUEST:
         {
           draft.gamingCheck = false;
+          draft.gamingCheckMessage = '';
           break;
         }
 
@@ -1221,6 +1250,7 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_FAILURE:
         {
           draft.gamingCheck = false;
+          draft.gamingCheckMessage = "게임을 진행중이지 않습니다.";
           break;
         }
 
