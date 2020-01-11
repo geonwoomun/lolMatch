@@ -45,7 +45,7 @@ app.get('/api/user/:name', async (req, res, next) =>{
         // 게임들을 다 가져옴
         const matchesDetails = await Promise.all(matches.data.matches.map(async (v) => { // 경기마다 사용자의 디테일 정보들을 가져옴.
             const details = await axios.get(`https://kr.api.riotgames.com/lol/match/v4/matches/${v.gameId}?api_key=${process.env.RIOT_API_KEY}`);
-            const participantId = details.data.participantIdentities.filter(v => v.player.summonerName === req.params.name)[0].participantId;
+            const participantId = details.data.participantIdentities.filter(v => v.player.summonerName.toUpperCase().replace(/(\s*)/g, "")  === req.params.name.toUpperCase().replace(/(\s*)/g, "") )[0].participantId;
             const detailInfo = details.data.participants[participantId-1];
             const matchInfo = {}
             matchInfo.type = getQueue(details.data.queueId);

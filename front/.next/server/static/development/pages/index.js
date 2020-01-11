@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1212,6 +1212,7 @@ const reducer = (state = initialState, action) => {
           draft.userMatches = [];
           draft.detailsInfos = [];
           draft.isLoadedUser = false;
+          draft.gameInfo = {};
           draft.gamingCheckMessage = "";
           break;
         }
@@ -1271,7 +1272,7 @@ const reducer = (state = initialState, action) => {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

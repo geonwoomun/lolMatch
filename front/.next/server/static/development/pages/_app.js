@@ -465,6 +465,7 @@ const reducer = (state = initialState, action) => {
           draft.userMatches = [];
           draft.detailsInfos = [];
           draft.isLoadedUser = false;
+          draft.gameInfo = {};
           draft.gamingCheckMessage = "";
           break;
         }
