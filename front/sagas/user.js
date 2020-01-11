@@ -1,6 +1,7 @@
 import { all, fork, takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
 import { SEARCH_USER_REQUEST, SEARCH_USER_FAILURE, SEARCH_USER_SUCCESS, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, CHECK_GAMING_REQUEST } from '../reducers/user';
+import { DONT_SEE_ROTATION } from '../reducers/champ';
 
 function searchUserAPI(userName){
     return axios.get(`/user/${userName}`);
@@ -12,6 +13,9 @@ function* searchUser(action) {
         yield put({
             type : SEARCH_USER_SUCCESS,
             data : result.data,
+        })
+        yield put({
+            type : DONT_SEE_ROTATION,
         })
     }catch(e){
         console.error(e);

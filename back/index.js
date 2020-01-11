@@ -25,6 +25,8 @@ app.get('/api/user/:name', async (req, res, next) =>{
         // 그아이디로 유저의 솔로랭크, 자유랭크 같은 전적들을 가져온다.
         let userInfo = {}; // 유저 정보들을 받아올 것임.
         userInfo.name = data.data.name;
+        userInfo.profileIcon = data.data.profileIconId;
+        userInfo.summonerLevel = data.data.summonerLevel;
         user.data.sort((a,b) => { // 솔로랭크, 자유랭크 순으로 정렬
             let queA = a.queueType.toUpperCase();
                     let queB = b.queueType.toUpperCase();

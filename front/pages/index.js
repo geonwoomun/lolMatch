@@ -11,6 +11,7 @@ import { CHECK_GAMING_REQUEST, GAMING_FALSE } from '../reducers/user';
 const Home = () => {
     const dispatch = useDispatch();
     const { userName, isLoadedUser, gamingCheck, gamingCheckMessage} = useSelector(state => state.user);
+    const { seeRotationChampion } = useSelector(state => state.champ);
     const onGamingCheck = useCallback(() => {
         if(!gamingCheck){
             dispatch({
@@ -29,7 +30,7 @@ const Home = () => {
     return (
         <>
             <InputForm/>
-            <RotationChamp/>
+            {seeRotationChampion && <RotationChamp/>}
             {isLoadedUser && <><UserProfile/>
             <Button onClick ={onGamingCheck}>인게임 정보</Button>
             {gamingCheck && <GameInfo/>}

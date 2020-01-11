@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -113,76 +113,14 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-const GameInfoWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
-  display : flex;
-  align-items : center;
-  flex-direction : column;
-  margin : 10px 10px;
-  padding : 10px 10px;
-  border : 1px solid #b2bec3;
-  border-radius : 5px;
-  background : #b2bec3;
-  & > div {
-    display: flex;
-    width: 500px;
-    justify-content: space-between;
-  }
-  & > div > img {
-    width : 20px;
-    height: 20px;
-  }
-  & > .banBox {
-    border : 1px solid grey;
-  }
-`;
-const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-
-  & .oneBox {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    border : 1px solid grey;
-    border-radius : 5px;
-  }
-  & .blueTeam {
-    background : #D4E4FE;
-  }
-  & .redTeam {
-    background : #FFEEEE;
-  }
-  & .runeBox {
-    display: flex;
-    flex-direction: column;
-  }
-  & .runeBox > img {
-    width: 25px;
-    height: 25px;
-  }
-  & .summonerBox {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    font-weight : bold;
-  }
-  & .summonerBox > span {
-    line-height: 45px;
-  }
-  & .summonerBox > .spellBox {
-    display: flex;
-    flex-direction: column;
-  }
-  & .summonerBox > .spellBox > img {
-    width: 25px;
-    height: 25px;
-  }
-  & .summonerBox > img {
-    width: 50px;
-    height: 50px;
-  }
-`;
+const GameInfoWrapper = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
+  displayName: "GameInfo__GameInfoWrapper",
+  componentId: "r3c2sd-0"
+})(["display:flex;align-items:center;flex-direction:column;margin:10px 10px;padding:10px 10px;border:1px solid #b2bec3;border-radius:5px;background:#b2bec3;& > div{display:flex;width:500px;justify-content:space-between;}& > div > img{width:20px;height:20px;}& > .banBox{border:1px solid grey;}"]);
+const GameInfoBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div.withConfig({
+  displayName: "GameInfo__GameInfoBox",
+  componentId: "r3c2sd-1"
+})(["display:flex;flex-direction:column;align-content:space-between;& .oneBox{display:flex;justify-content:space-between;margin-bottom:10px;border:1px solid grey;border-radius:5px;}& .blueTeam{background:#D4E4FE;}& .redTeam{background:#FFEEEE;}& .runeBox{display:flex;flex-direction:column;}& .runeBox > img{width:25px;height:25px;}& .summonerBox{display:flex;justify-content:center;align-content:center;font-weight:bold;}& .summonerBox > span{line-height:45px;}& .summonerBox > .spellBox{display:flex;flex-direction:column;}& .summonerBox > .spellBox > img{width:25px;height:25px;}& .summonerBox > img{width:50px;height:50px;}"]);
 
 const GameInfo = () => {
   const {
@@ -437,6 +375,9 @@ const InputForm = () => {
   }, []);
   return __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["Form"], {
     onSubmit: onSubmit,
+    style: {
+      marginBottom: "20px"
+    },
     __source: {
       fileName: _jsxFileName,
       lineNumber: 21
@@ -482,15 +423,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "antd");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _reducers_champ__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reducers/champ */ "./reducers/champ.js");
+/* harmony import */ var _reducers_champ__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../reducers/champ */ "./reducers/champ.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\Users\\ansej\\\uACF5\uBD80\uD55C\uAC83\uB4E4\\lolMatch\\front\\components\\RotationChamp.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+ // 새로고침을 했을 때 styled-components 가 적용 되지 않는 문제가 있었는데
+// .babelrc 파일 추가하고 ~~ 적어주고
+// package.json에 밑의 내용 추가해서 npm i 하고 나니 성공!!
+// "devDependencies": {
+//  "babel-plugin-styled-components": "^1.8.0"
+//}
 
+const ChampionUl = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.ul.withConfig({
+  displayName: "RotationChamp__ChampionUl",
+  componentId: "sc-1yh42k6-0"
+})(["list-style:none;display:flex;flex-flow:wrap;border:1px solid #1890FF;border-radius:5px;justify-content:center;align-items:center;min-width:300px;& li{flex:1;text-align:center;}"]);
 
 const RotationChamp = () => {
   const {
@@ -499,72 +450,44 @@ const RotationChamp = () => {
   const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useDispatch"])();
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     dispatch({
-      type: _reducers_champ__WEBPACK_IMPORTED_MODULE_3__["ROTATION_CHAMPION_REQUEST"]
+      type: _reducers_champ__WEBPACK_IMPORTED_MODULE_2__["ROTATION_CHAMPION_REQUEST"]
     });
   }, []);
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 37
     },
     __self: undefined
-  }, "\uB85C\uD14C\uC774\uC158 \uCC54\uD53C\uC5B8"), __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["List"], {
-    style: {
-      width: 600
-    },
-    grid: {
-      gutter: 4,
-      column: 5,
-      padding: "0px",
-      margin: "0px"
-    },
-    itemLayout: "horizontal",
-    size: "small",
-    dataSource: rotationChampion,
-    renderItem: item => __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["List"].Item, {
-      style: {
-        width: 100,
-        padding: "0px",
-        margin: "0px"
-      },
-      key: item.id,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24
-      },
-      __self: undefined
-    }, __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["Card"], {
-      style: {
-        width: 90,
-        padding: "0px",
-        margin: "0px",
-        fontSize: "10px"
-      },
-      hoverable: true,
-      cover: __jsx("img", {
-        style: {
-          width: 90
-        },
-        alt: "champ",
-        src: `http://localhost:3065/champ/champ_${item.id}.png`,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 27
-        },
-        __self: undefined
-      }),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: undefined
-    }, item.championName)),
+  }, "\uB85C\uD14C\uC774\uC158 \uCC54\uD53C\uC5B8"), __jsx(ChampionUl, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 38
     },
     __self: undefined
-  }));
+  }, rotationChampion.map(r => {
+    return __jsx("li", {
+      key: r.id,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: undefined
+    }, __jsx("img", {
+      src: `http://localhost:3065/champ/champ_${r.id}.png`,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: undefined
+    }), __jsx("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40
+      },
+      __self: undefined
+    }, r.championName.length < 5 ? r.championName : r.championName.slice(0, 4)));
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RotationChamp);
@@ -597,14 +520,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-const TableWrapper = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(antd__WEBPACK_IMPORTED_MODULE_3__["Table"])`
-  & .tableRowBlue {
-    background : #D4E4FE;
-  }
-  & .tableRowRed {
-    background : #FFEEEE;
-  }
-`;
+const TableWrapper = styled_components__WEBPACK_IMPORTED_MODULE_4___default()(antd__WEBPACK_IMPORTED_MODULE_3__["Table"]).withConfig({
+  displayName: "UserMatches__TableWrapper",
+  componentId: "u3o19f-0"
+})(["& .tableRowBlue{background:#D4E4FE;}& .tableRowRed{background:#FFEEEE;}"]);
 
 const UserMatches = () => {
   const {
@@ -903,24 +822,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! antd */ "antd");
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "C:\\Users\\ansej\\\uACF5\uBD80\uD55C\uAC83\uB4E4\\lolMatch\\front\\components\\UserProfile.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
 
+const ProfileBox = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
+  displayName: "UserProfile__ProfileBox",
+  componentId: "jio3qa-0"
+})(["display:flex;border:1px solid grey;border-radius:5px;margin-top:20px;margin-bottom:10px;& > img{width:100px;height:100px;}& .level{border:1px solid grey;width:80px;display:flex;justify-content:center;margin-left:5px;background:#FAFAFA;border-radius:3px;box-shadow:1px 1px grey;}"]);
+
 const UserProfile = () => {
   const {
     userName,
+    userProfile,
+    userLevel,
     userRanks
   } = Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["useSelector"])(state => state.user);
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(ProfileBox, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 34
+    },
+    __self: undefined
+  }, __jsx("img", {
+    src: `http://localhost:3065/icon/${userProfile}.png`,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: undefined
+  }, __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
     },
     __self: undefined
   }, userName), __jsx("div", {
+    className: "level",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: undefined
+  }, "\uB808\uBCA8 : ", userLevel))), __jsx("div", {
     style: {
       display: "flex",
       alignItems: "center",
@@ -928,7 +882,7 @@ const UserProfile = () => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 41
     },
     __self: undefined
   }, userRanks.map(match => {
@@ -950,45 +904,45 @@ const UserProfile = () => {
         alt: "",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 17
+          lineNumber: 61
         },
         __self: undefined
       }),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
+        lineNumber: 51
       },
       __self: undefined
     }, __jsx(antd__WEBPACK_IMPORTED_MODULE_2__["Card"].Meta, {
       title: __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 21
+          lineNumber: 70
         },
         __self: undefined
-      }, match.queueType === 'RANKED_FLEX_SR' ? "자유랭크 5x5" : "솔로랭크5x5", __jsx("br", {
+      }, match.queueType === "RANKED_FLEX_SR" ? "자유랭크 5x5" : "솔로랭크5x5", __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 22
+          lineNumber: 74
         },
         __self: undefined
       }), match.tier + " " + match.rank, " \uB4F1\uAE09", __jsx("br", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 23
+          lineNumber: 76
         },
         __self: undefined
       }), match.leaguePoints, " points"),
       description: __jsx("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 25
+          lineNumber: 81
         },
         __self: undefined
-      }, match.wins + match.losses, "\uC804 ", " ", match.wins, "\uC2B9", " ", match.losses, "\uD328", " ", "(", (match.wins / (match.wins + match.losses) * 100).toFixed(2), "%)"),
+      }, match.wins + match.losses, "\uC804 ", match.wins, "\uC2B9", " ", match.losses, "\uD328 (", (match.wins / (match.wins + match.losses) * 100).toFixed(2), "%)"),
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
+        lineNumber: 68
       },
       __self: undefined
     }));
@@ -1051,6 +1005,9 @@ const Home = () => {
     gamingCheck,
     gamingCheckMessage
   } = Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["useSelector"])(state => state.user);
+  const {
+    seeRotationChampion
+  } = Object(react_redux__WEBPACK_IMPORTED_MODULE_5__["useSelector"])(state => state.champ);
   const onGamingCheck = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
     if (!gamingCheck) {
       dispatch({
@@ -1067,38 +1024,38 @@ const Home = () => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_InputForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 32
     },
     __self: undefined
-  }), __jsx(_components_RotationChamp__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }), seeRotationChampion && __jsx(_components_RotationChamp__WEBPACK_IMPORTED_MODULE_6__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 33
     },
     __self: undefined
   }), isLoadedUser && __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_UserProfile__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 34
     },
     __self: undefined
   }), __jsx(antd__WEBPACK_IMPORTED_MODULE_7__["Button"], {
     onClick: onGamingCheck,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 35
     },
     __self: undefined
   }, "\uC778\uAC8C\uC784 \uC815\uBCF4"), gamingCheck && __jsx(_components_GameInfo__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 36
     },
     __self: undefined
   }), gamingCheckMessage, __jsx(_components_UserMatches__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 38
     },
     __self: undefined
   })));
@@ -1112,7 +1069,7 @@ const Home = () => {
 /*!***************************!*\
   !*** ./reducers/champ.js ***!
   \***************************/
-/*! exports provided: initialState, ROTATION_CHAMPION_REQUEST, ROTATION_CHAMPION_SUCCESS, ROTATION_CHAMPION_FAILURE, default */
+/*! exports provided: initialState, ROTATION_CHAMPION_REQUEST, ROTATION_CHAMPION_SUCCESS, ROTATION_CHAMPION_FAILURE, SEE_ROTATION_REQUEST, SEE_ROTATION_SUCCESS, DONT_SEE_ROTATION, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1121,16 +1078,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROTATION_CHAMPION_REQUEST", function() { return ROTATION_CHAMPION_REQUEST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROTATION_CHAMPION_SUCCESS", function() { return ROTATION_CHAMPION_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROTATION_CHAMPION_FAILURE", function() { return ROTATION_CHAMPION_FAILURE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEE_ROTATION_REQUEST", function() { return SEE_ROTATION_REQUEST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEE_ROTATION_SUCCESS", function() { return SEE_ROTATION_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DONT_SEE_ROTATION", function() { return DONT_SEE_ROTATION; });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "immer");
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
 
 const initialState = {
+  seeRotationChampion: true,
   rotationChampion: [],
   rotationError: ""
 };
 const ROTATION_CHAMPION_REQUEST = "ROTATION_CHAMPION_REQUEST";
 const ROTATION_CHAMPION_SUCCESS = "ROTATION_CHAMPION_SUCCESS";
 const ROTATION_CHAMPION_FAILURE = "ROTATION_CHAMPION_FAILURE";
+const SEE_ROTATION_REQUEST = "SEE_ROTATION_REQUEST";
+const SEE_ROTATION_SUCCESS = "SEE_ROTATION_REQUEST";
+const DONT_SEE_ROTATION = "DONT_SEE_ROTATION";
 
 const reducer = (state = initialState, action) => {
   return immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
@@ -1156,6 +1120,21 @@ const reducer = (state = initialState, action) => {
           break;
         }
 
+      case SEE_ROTATION_REQUEST:
+        {
+          break;
+        }
+
+      case SEE_ROTATION_SUCCESS:
+        {
+          draft.seeRotationChampion = true;
+        }
+
+      case DONT_SEE_ROTATION:
+        {
+          draft.seeRotationChampion = false;
+        }
+
       default:
         break;
     }
@@ -1170,7 +1149,7 @@ const reducer = (state = initialState, action) => {
 /*!**************************!*\
   !*** ./reducers/user.js ***!
   \**************************/
-/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, GAMING_FALSE, default */
+/*! exports provided: initialState, SEARCH_USER_REQUEST, SEARCH_USER_SUCCESS, SEARCH_USER_FAILURE, CHECK_GAMING_REQUEST, CHECK_GAMING_SUCCESS, CHECK_GAMING_FAILURE, GAMING_FALSE, INIT_PROFILE, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1183,18 +1162,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_SUCCESS", function() { return CHECK_GAMING_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHECK_GAMING_FAILURE", function() { return CHECK_GAMING_FAILURE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GAMING_FALSE", function() { return GAMING_FALSE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "INIT_PROFILE", function() { return INIT_PROFILE; });
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! immer */ "immer");
 /* harmony import */ var immer__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(immer__WEBPACK_IMPORTED_MODULE_0__);
 
 const initialState = {
-  userName: '',
+  userName: "",
+  userLevel: 0,
+  userProfile: "",
   userRanks: [],
   userMatches: [],
   detailInfos: [],
   isLoadedUser: false,
   gamingCheck: false,
   gameInfo: {},
-  gamingCheckMessage: ''
+  gamingCheckMessage: ""
 };
 const SEARCH_USER_REQUEST = "SEARCH_USER_REQUEST";
 const SEARCH_USER_SUCCESS = "SEARCH_USER_SUCCESS";
@@ -1203,23 +1185,42 @@ const CHECK_GAMING_REQUEST = "CHECK_GAMING_REQUEST";
 const CHECK_GAMING_SUCCESS = "CHECK_GAMING_SUCCESS";
 const CHECK_GAMING_FAILURE = "CHECK_GAMING_FAILURE";
 const GAMING_FALSE = "GAMING_FALSE";
+const INIT_PROFILE = "INIT_PROFILE";
 
 const reducer = (state = initialState, action) => {
   return immer__WEBPACK_IMPORTED_MODULE_0___default()(state, draft => {
     switch (action.type) {
+      case INIT_PROFILE:
+        {
+          draft.userName = "";
+          draft.userLevel = 0;
+          draft.userProfile = "";
+          draft.userRanks = [];
+          draft.userMatches = [];
+          draft.detailInfos = [];
+          draft.isLoadedUser = false;
+          draft.gamingCheck = false;
+          draft.gameInfo = {};
+          draft.gamingCheckMessage = "";
+        }
+
       case SEARCH_USER_REQUEST:
         {
           draft.userRanks = [];
+          draft.userLevel = 0;
+          draft.userProfile = "";
           draft.userMatches = [];
           draft.detailsInfos = [];
           draft.isLoadedUser = false;
-          draft.gamingCheckMessage = '';
+          draft.gamingCheckMessage = "";
           break;
         }
 
       case SEARCH_USER_SUCCESS:
         {
           draft.userName = action.data.name;
+          draft.userLevel = action.data.summonerLevel;
+          draft.userProfile = action.data.profileIcon;
           draft.userRanks = [action.data["RANKED_SOLO_5x5"], action.data["RANKED_FLEX_SR"]];
           draft.userMatches = action.data.matches;
           draft.detailInfos = action.data.detailInfos;
@@ -1236,7 +1237,7 @@ const reducer = (state = initialState, action) => {
       case CHECK_GAMING_REQUEST:
         {
           draft.gamingCheck = false;
-          draft.gamingCheckMessage = '';
+          draft.gamingCheckMessage = "";
           break;
         }
 
@@ -1270,7 +1271,7 @@ const reducer = (state = initialState, action) => {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

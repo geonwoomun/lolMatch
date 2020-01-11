@@ -18,7 +18,7 @@ const InputForm = () => {
         setUsernName(e.target.value)
     }, [])
     return (
-        <Form onSubmit={onSubmit}>
+        <Form onSubmit={onSubmit} style={{marginBottom : "20px"}}>
             <Input style={{width : 400}} placeholder="소환사명 검색" value = {userName} onChange={onChangeName}></Input>
             <Button type = 'primary' htmlType ="submit">검색</Button>
         </Form>
