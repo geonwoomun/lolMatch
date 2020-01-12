@@ -48,7 +48,7 @@ const UserMatches = () => {
       key: "KDA",
       render: kda => (
         <div>
-          {"평점:" + ((kda[0] + kda[2]) / kda[1]).toFixed(2)}
+          {"평점:" , (kda[0] + kda[2]) / kda[1] === Infinity ? "Perfect" : ((kda[0] + kda[2]) / kda[1]).toFixed(2) }
           <br />
           {`${kda[0]}/${kda[1]}/${kda[2]}`}
         </div>

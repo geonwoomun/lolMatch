@@ -570,7 +570,7 @@ const UserMatches = () => {
         lineNumber: 50
       },
       __self: undefined
-    }, "평점:" + ((kda[0] + kda[2]) / kda[1]).toFixed(2), __jsx("br", {
+    }, ("평점:", (kda[0] + kda[2]) / kda[1] === Infinity ? "Perfect" : ((kda[0] + kda[2]) / kda[1]).toFixed(2)), __jsx("br", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 52
@@ -1093,7 +1093,7 @@ const ROTATION_CHAMPION_REQUEST = "ROTATION_CHAMPION_REQUEST";
 const ROTATION_CHAMPION_SUCCESS = "ROTATION_CHAMPION_SUCCESS";
 const ROTATION_CHAMPION_FAILURE = "ROTATION_CHAMPION_FAILURE";
 const SEE_ROTATION_REQUEST = "SEE_ROTATION_REQUEST";
-const SEE_ROTATION_SUCCESS = "SEE_ROTATION_REQUEST";
+const SEE_ROTATION_SUCCESS = "SEE_ROTATION_SUCCESS";
 const DONT_SEE_ROTATION = "DONT_SEE_ROTATION";
 
 const reducer = (state = initialState, action) => {
@@ -1128,11 +1128,13 @@ const reducer = (state = initialState, action) => {
       case SEE_ROTATION_SUCCESS:
         {
           draft.seeRotationChampion = true;
+          break;
         }
 
       case DONT_SEE_ROTATION:
         {
           draft.seeRotationChampion = false;
+          break;
         }
 
       default:
@@ -1202,6 +1204,7 @@ const reducer = (state = initialState, action) => {
           draft.gamingCheck = false;
           draft.gameInfo = {};
           draft.gamingCheckMessage = "";
+          break;
         }
 
       case SEARCH_USER_REQUEST:

@@ -11,7 +11,7 @@ export const ROTATION_CHAMPION_SUCCESS = "ROTATION_CHAMPION_SUCCESS";
 export const ROTATION_CHAMPION_FAILURE = "ROTATION_CHAMPION_FAILURE";
 
 export const SEE_ROTATION_REQUEST = "SEE_ROTATION_REQUEST";
-export const SEE_ROTATION_SUCCESS = "SEE_ROTATION_REQUEST";
+export const SEE_ROTATION_SUCCESS = "SEE_ROTATION_SUCCESS";
 export const DONT_SEE_ROTATION = "DONT_SEE_ROTATION";
 
 const reducer = (state = initialState, action) => {
@@ -37,9 +37,11 @@ const reducer = (state = initialState, action) => {
             }
             case SEE_ROTATION_SUCCESS : {
                 draft.seeRotationChampion = true;
+                break;
             }
             case DONT_SEE_ROTATION :{
                 draft.seeRotationChampion = false;
+                break;
             }
             default : break;
         }

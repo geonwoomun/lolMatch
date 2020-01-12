@@ -39,6 +39,7 @@ const reducer = (state = initialState, action) => {
         draft.gamingCheck = false;
         draft.gameInfo = {};
         draft.gamingCheckMessage = "";
+        break;
       }
       case SEARCH_USER_REQUEST: {
         draft.userRanks = [];

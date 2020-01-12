@@ -104,18 +104,15 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "prop-types");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "react-redux");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! antd */ "antd");
-/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _reducers_champ__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reducers/champ */ "./reducers/champ.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! antd */ "antd");
+/* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _reducers_champ__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../reducers/champ */ "./reducers/champ.js");
 var _jsxFileName = "C:\\Users\\ansej\\\uACF5\uBD80\uD55C\uAC83\uB4E4\\lolMatch\\front\\components\\AppLayout.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
 
 
 
@@ -126,63 +123,58 @@ const AppLayout = ({
   children
 }) => {
   // props
-  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["useDispatch"])();
-
-  const homeOnClick = () => {
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useDispatch"])();
+  const homeOnClick = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(() => {
     dispatch({
-      type: _reducers_champ__WEBPACK_IMPORTED_MODULE_5__["SEE_ROTATION_REQUEST"]
+      type: _reducers_champ__WEBPACK_IMPORTED_MODULE_4__["SEE_ROTATION_REQUEST"]
     });
-    next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push({
-      pathname: '/'
-    });
-  };
-
+  }, []);
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 15
     },
     __self: undefined
-  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_4__["Menu"], {
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Menu"], {
     mode: "horizontal",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 16
     },
     __self: undefined
-  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_4__["Menu"].Item, {
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Menu"].Item, {
     key: "home",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 17
     },
     __self: undefined
-  }, __jsx("a", {
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Button"], {
     onClick: homeOnClick,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 17
     },
     __self: undefined
-  }, "\uD648"))), __jsx(antd__WEBPACK_IMPORTED_MODULE_4__["Row"], {
+  }, "\uD648"))), __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Row"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 23
     },
     __self: undefined
-  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_4__["Col"], {
+  }, __jsx(antd__WEBPACK_IMPORTED_MODULE_3__["Col"], {
     xs: 24,
     md: 24,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 31
     },
     __self: undefined
   }, children)));
 };
 
 AppLayout.propTypes = {
-  children: prop_types__WEBPACK_IMPORTED_MODULE_2___default.a.node
+  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.node
 };
 /* harmony default export */ __webpack_exports__["default"] = (AppLayout);
 
@@ -322,7 +314,7 @@ const ROTATION_CHAMPION_REQUEST = "ROTATION_CHAMPION_REQUEST";
 const ROTATION_CHAMPION_SUCCESS = "ROTATION_CHAMPION_SUCCESS";
 const ROTATION_CHAMPION_FAILURE = "ROTATION_CHAMPION_FAILURE";
 const SEE_ROTATION_REQUEST = "SEE_ROTATION_REQUEST";
-const SEE_ROTATION_SUCCESS = "SEE_ROTATION_REQUEST";
+const SEE_ROTATION_SUCCESS = "SEE_ROTATION_SUCCESS";
 const DONT_SEE_ROTATION = "DONT_SEE_ROTATION";
 
 const reducer = (state = initialState, action) => {
@@ -357,11 +349,13 @@ const reducer = (state = initialState, action) => {
       case SEE_ROTATION_SUCCESS:
         {
           draft.seeRotationChampion = true;
+          break;
         }
 
       case DONT_SEE_ROTATION:
         {
           draft.seeRotationChampion = false;
+          break;
         }
 
       default:
@@ -455,6 +449,7 @@ const reducer = (state = initialState, action) => {
           draft.gamingCheck = false;
           draft.gameInfo = {};
           draft.gamingCheckMessage = "";
+          break;
         }
 
       case SEARCH_USER_REQUEST:
@@ -762,17 +757,6 @@ module.exports = require("next-redux-wrapper");
 /***/ (function(module, exports) {
 
 module.exports = require("next/head");
-
-/***/ }),
-
-/***/ "next/router":
-/*!******************************!*\
-  !*** external "next/router" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
 
 /***/ }),
 
